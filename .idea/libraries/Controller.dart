@@ -92,15 +92,8 @@ class Controller {
   void Delete() {
     print("----Delete by name----\nEnter name:");
     String? givenName = stdin.readLineSync();
-    for(var student in details!){
-      if(student.name == givenName){
-         details?.remove(student.name);
-         details?.remove(student.id);
-         details?.remove(student.cgpa);
-         details?.remove(student.address);
-      }
-    }
 
+    details?.removeWhere((details) => details.name == givenName);
     Homepage();
   }
 
