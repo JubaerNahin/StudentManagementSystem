@@ -98,12 +98,17 @@ class Controller {
   }
 
   void Search() {
-    print("----Search by name----\nEnter name:");
-    String? givenName = stdin.readLineSync();
+    print("----Search within cgpa----\nEnter higher range:");
+    double? higherRange = double.parse(stdin.readLineSync()!);
+    print("Enter lower range:");
+    double? lowerRange = double.parse(stdin.readLineSync()!);
+    print("Details of students within the range:");
     for(var student in details!){
-      if(student.name == givenName){
+      if(student.cgpa >= lowerRange && student.cgpa <= higherRange){
         print({student.name, student.id, student.cgpa,student.address});
       }
     }
+    Homepage();
+
   }
 }
